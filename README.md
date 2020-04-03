@@ -17,10 +17,10 @@ The Juniper Tree stack gives you a fast, free and scalable way to publish crowd-
 - Deploy site
 
 You will need a build hook to trigger content updates:
+
 - Under `Site Settings`, click `Build and Deploy` > `Build hooks` > `Add build hook`
-- ?Set build command to `npm run content`?
 - This will generate an API link with your build hook ID. You will need to add this to your Google Sheet, eg. https://api.netlify.com/build_hooks/<Your build hook ID>
-  
+
 ## DNS
 
 Nameservers
@@ -38,7 +38,7 @@ Your site can be run from a subdomain by creating a CNAME record from your subdo
 - You can optionally use the `Lists` tab, to perform validation on the data that comes in via the form
 - Resources can be added manually in the `Form Responses` tab
 
-The first time you tap on the `Publish` button your script will ask you for permissions to run.
+The first time you publish your content by clicking `Publish` > `Update` from the menu, your script will ask you for permissions to run.
 
 Only rows ticked as `Verified` will be published.
 
