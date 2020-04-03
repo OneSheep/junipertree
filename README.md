@@ -11,22 +11,34 @@ The Juniper Tree stack gives you a fast, free and scalable way to publish crowd-
 ## Set up Netlify
 
 - Log in to your Netlify account
-- Click `New site from git` and enter your public repo link
+- Click `New site from git` and select your Git provider. (You will need to grant Netlify access to your account)
+- Pick a repository from your account, and select correct branch to deploy (usually `master`)
 - Set build command to `npm run production` and publish directory to `dist`
-- Add a deploy hook to trigger content updates:
-- Tap `Build and Deploy` > `Build hooks` > `Add build hook`
-- Note the build hook id which you will need in the next section
-- Forward your site to your own public domain
+- Deploy site
+
+You will need a build hook to trigger content updates:
+- Under `Site Settings`, click `Build and Deploy` > `Build hooks` > `Add build hook`
+- ?Set build command to `npm run content`?
+- This will generate an API link with your build hook ID. You will need to add this to your Google Sheet, eg. https://api.netlify.com/build_hooks/<Your build hook ID>
+  
+## DNS
+
+Nameservers
+
+- The nameservers for Netlify can be found under your Netlify team > Domains
+- These need adding to your registrar
+
+Your site can be run from a subdomain by creating a CNAME record from your subdomain to Netlify's default subdomain
 
 ## Set up a Google Sheet
 
-- [Make a copy of the sheet template](https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing)
-- Tap `File` > `Publish to the web` in the menu bar
-- Tap `Tools` > `Script editor` and fill in your netlify build hook id and save the changes.
-- On the `Lists` tab, fill in your sections and resource types
-- Add some resources in the `Content` tab
+- [Make a copy of the sheet template](bit.ly/juniper-template)
+- Click `File` > `Publish to the web` in the menu bar
+- Click `Tools` > `Script editor` and fill in your Netlify build hook ID and save the changes.
+- You can optionally use the `Lists` tab, to perform validation on the data that comes in via the form
+- Resources can be added manually in the `Form Responses` tab
 
-The first time you select `Publish` > `Update` your script will ask you for permissions to run.
+The first time you tap on the `Publish` button your script will ask you for permissions to run.
 
 Only rows ticked as `Verified` will be published.
 
