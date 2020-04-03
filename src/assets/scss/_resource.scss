@@ -1,0 +1,61 @@
+.resource {
+  @apply block relative py-4 overflow-hidden max-w-screen-md;
+
+  &:after {
+    @apply block mx-auto mt-6 h-1 border-grey border-solid border-b w-6/12;
+    content: '';
+  }
+
+  &:last-child {
+    @apply border-b-0;
+
+    &:after {
+      content: none;
+    }
+  }
+
+  h2 {
+    @apply text-2xl pr-8 pt-4;
+  }
+
+  &__type {
+    @apply font-heading uppercase text-salmon leading-none absolute top-0 mt-4;
+  }
+
+  &__meta {
+    @apply text-black my-3;
+    transition: color .2s;
+    min-height: 3rem;
+  }
+
+  &__details {
+    @apply relative;
+  }
+
+  &__actions {
+    @apply absolute right-0 top-0 mt-10 text-grey;
+  }
+
+  &__actions__btn {
+    &:hover,
+    &:focus {
+      @apply outline-none appearance-none text-salmon;
+    }
+  }
+
+  &__icon {
+    @apply h-6 w-6;
+  }
+
+  &__link {
+    @apply inline-block underline;
+
+    &:hover {
+      @apply text-salmon;
+    }
+  }
+}
+
+.no-js .resource__actions {
+  display: none;
+}

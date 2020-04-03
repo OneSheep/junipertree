@@ -1,0 +1,12 @@
+.infoBar {
+  @apply bg-salmon text-white p-4;
+
+  p {
+    @apply mx-auto;
+    max-width: 500px;
+  }
+
+  p:first-child {
+    @apply mb-4;
+  }
+}

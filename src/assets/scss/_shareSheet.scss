@@ -1,0 +1,52 @@
+.shareSheet {
+  @apply flex flex-wrap hidden;
+
+  &--open {
+    @apply grid items-center absolute bg-white p-2 border border-salmon inset-0;
+
+    span:first-child {
+      @apply text-sm;
+    }
+
+    span:last-child {
+      @apply flex justify-around;
+    }
+  }
+
+  &__label {
+    @apply mr-2;
+  }
+
+  &__service {
+    @apply no-underline inline-block;
+
+    &:hover {
+      .shareSheet__service__icon {
+        @apply text-salmon;
+      }
+    }
+  }
+
+  &__service__label {
+    @include visuallyHidden;
+  }
+
+  &__service__icon {
+    @apply h-6 w-6 inline-block mx-2 text-grey-darker;
+
+    &:first-child {
+      @apply ml-0;
+    }
+
+    @screen md {
+      @apply h-8 w-8 mx-4;
+    }
+  }
+}
+.no-js .shareSheet {
+  @apply block;
+
+  &__service__icon {
+    @apply h-4 w-4;
+  }
+}

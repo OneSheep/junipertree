@@ -1,0 +1,92 @@
+---
+layout: default
+eleventyExcludeFromCollections: true
+---
+
+{% import "./_includes/macro/svg.njk" as svg %}
+
+{% include './_includes/partials/infobar.njk' %}
+
+<section class="resourceContainer">
+  <aside class="resourceContainer__sidebar" x-show.transition.origin.top.center="navDisplayed">
+
+    <a class="resourceContainer__sidebar__addResourceBtn" target="_blank" href="https://docs.google.com/forms/d/e/{{metadata.formId}}/viewform">
+      {{ svg.sprite("add") }}
+      Add resource
+    </a>
+
+    <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--no-js">
+      There are {{ sheet | countResources }} resources available
+    </div>
+
+    <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--js">
+      <span x-show="!query">Listing all {{ sheet | countResources }} resources</span>
+      <span x-show="!!query">Showing <span x-text="filteredItems().length"></span> results from search</span>
+    </div>
+
+    <nav class="sectionNav">
+
+      {# NOTE: The following two <ul> sections should stay in sync #}
+
+      <ul x-show="!query">
+        {% for key, item in sheet %}
+        <li>
+          <a href="#{{ key | slug }}" class="sectionNav__link" @click.away="navDisplayed = false">
+            {{ key }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <ul x-show="!!query">
+        <template x-for="section in filteredSections()" :key="section.name">
+          <li>
+            <span class="sectionNav__link opacity-50" x-text="section.name" x-show="section.items.length == 0"></span>
+            <a
+              :href="'#' + slugify(section.name)"
+              class="sectionNav__link"
+              x-show="section.items.length > 0"
+              @click.away="navDisplayed = false"
+            >
+              <span x-text="section.name"></span> ( <span x-text="section.items.length"></span> )
+            </a>
+          </li>
+        </template>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="resourceContainer__mainList">
+
+    {% include './_includes/partials/filters.njk' %}
+
+    <div x-show="!!query">
+      <template x-for="section in filteredSections()" :key="section.name">
+        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
+          <h1 x-text="section.name" :id="slugify(section.name)"></h1>
+          <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+            <template x-for="item in section.items" :key="item.title">
+              {% include './_includes/partials/resource_dynamic.njk' %}
+            </template>
+          </div>
+        </section>
+      </template>
+    </div>
+
+    <div x-show="!query">
+      {% for key, item in sheet %}
+      <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
+        <h1>{{ key }}</h1>
+
+        {% if sections[ key | slug] %}
+        <p>{{ sections[ key | slug ]['intro'] | dewidow | safe }}</p>
+        {% endif %}
+
+        <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+          {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </main>
+</section>

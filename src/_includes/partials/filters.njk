@@ -1,0 +1,16 @@
+<section id="filter" class="viewOptions">
+  <div class="viewOptions__search searchField">
+    <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
+    {{ svg.sprite("search", "searchField__icon") }}
+  </div>
+
+  <div class="viewOptions__btns">
+    <button x-show="showAsTiles === true" @click="showAsTiles = false" aria-label="View as a list">
+      {{ svg.sprite("list") }}
+    </button>
+
+    <button x-show="showAsTiles === false" @click="showAsTiles = true" aria-label="View as a grid">
+      {{ svg.sprite("grid") }}
+    </button>
+  </div>
+</section>

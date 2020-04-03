@@ -1,0 +1,23 @@
+.resourceList {
+  @apply mb-6;
+
+  &--card {
+    @apply grid grid-cols-1 col-gap-4 row-gap-4 max-w-screen-md;
+
+    @screen lg {
+      @apply grid-cols-2 
+    }
+
+    .resource {
+      @apply border border-b border-grey p-4;
+    }
+
+    .resource:after{
+      content: none;
+    }
+
+    .resource__actions {
+      @apply mr-4;
+    }
+  }
+}

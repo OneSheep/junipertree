@@ -1,0 +1,50 @@
+{% import "../macro/svg.njk" as svg %}
+
+{% macro sheet(shareUrl, text) %}
+<div class="shareSheet">
+  <span class="shareSheet__label">
+  Share this resource:
+  </span>
+
+  <span>
+    <a class="shareSheet__service" href="https://facebook.com/sharer/sharer.php?u={{ shareUrl | urlEncode }} " target="_blank" rel="noopener" aria-label="Share on Facebook">
+      {{ svg.sprite("facebook", "shareSheet__service__icon") }}
+      <span class="shareSheet__service__label">
+        Share on Facebook
+      </span>
+    </a>
+
+    <a class="shareSheet__service" href="https://twitter.com/intent/tweet/?text={{ text | urlEncode }}&amp;url={{ shareUrl | urlEncode }}" target="_blank" rel="noopener" aria-label="Share on Twitter">
+      {{ svg.sprite("twitter", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on Twitter
+      </span>
+    </a>
+
+    <a class="shareSheet__service" href="mailto:?subject={{ text | urlEncode }}&amp;body={{ shareUrl | urlEncode }}" target="_self" rel="noopener" aria-label="Share by E-Mail">
+      {{ svg.sprite("email", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share by E-Mail
+      </span>
+    </a>
+
+    <a class="shareSheet__service" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ shareUrl | urlEncode }}&amp;title={{ text | urlEncode }}&amp;summary={{ text | urlEncode }}&amp;source={{ shareUrl | urlEncode }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      {{ svg.sprite("linkedin", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on LinkedIn
+      </span>
+    </a>
+
+    <a class="shareSheet__service" href="whatsapp://send?text={{ text | urlEncode }}%20{{ shareUrl | urlEncode }}" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+      {{ svg.sprite("whatsapp", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on WhatsApp
+      </span>
+    </a>
+  </span>
+</div>
+{% endmacro %}

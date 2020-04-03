@@ -1,0 +1,43 @@
+---
+layout: page
+eleventyExcludeFromCollections: true
+title: Contributors
+sectionNav: [{title: 'Content', url: '#content'}, {title: 'Technology', url: '#technology'}]
+---
+
+<div class="highlightBox">
+  <p>
+    {{ metadata.description }}
+  </p>
+</div>
+
+<section class="resourceContainer__mainList__section">
+
+  <h1 id="content">Content</h1>
+
+  <ul>
+  {% for c in contributors %}
+    {% if 'content' in c.role %}
+      <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</section>
+
+<section class="resourceContainer__mainList__section">
+
+  <h1 id="technology">Technology</h1>
+
+  <ul>
+  {% for c in contributors %}
+    {% if 'tech' in c.role %}
+      <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+  <div class="highlightBox">
+    <p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
+  </div>
+
+</section>

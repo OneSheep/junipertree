@@ -1,0 +1,81 @@
+{% import "../macro/svg.njk" as svg %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+    <title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
+
+    <link rel="author" href="humans.txt" />
+
+    <meta name="description" content="{{ intro if intro else metadata.description }}" />
+    <meta itemprop="description" content="{{ intro if intro else metadata.description }}" />
+
+    <meta property="og:title" content="{{ metadata.title }}{% if title %} - {{ title }}{% endif %}" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:site_name" content="{{ metadata.title }}" />
+    <meta property="og:title" content="{{ metadata.title }}" />
+    <meta property="og:url" content="{{ metadata.rootUrl }}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{{ metadata.rootUrl }}" />
+    <meta name="twitter:title" content="{{ metadata.title }}" />
+    <meta name="twitter:description" content="{{ metadata.description }}" />
+    <meta property="og:description" content="{{ metadata.description }}" />
+    <meta name="twitter:image" content="{{ metadata.ogImage }}" />
+    <meta property="og:image" content="{{ metadata.ogImage }}" />
+    <meta property="og:image:alt" content="{{ metadata.description }}" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
+    <link href="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    {% if metadata.env != 'dev' %}
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ metadata.gtm }}');</script>
+    {% endif %}
+  </head>
+
+  <body class="no-js" x-data="store()" x-init="init()">
+    <header class="siteHeader">
+      <h1>
+        <a href="/">{{ metadata.title }}</a>
+      </h1>
+
+      <button class="siteHeader__navToggle" @click="navDisplayed = !navDisplayed">
+        <template x-if="navDisplayed">
+          <div>
+            <span>Close</span>
+            {{ svg.sprite("close") }}
+          </div>
+        </template>
+        <template x-if="!navDisplayed">
+          <div>
+            <span>Menu</span>
+            {{ svg.sprite("menu") }}
+          </div>
+        </template>
+      </a>
+    </header>
+
+    <div class="centralContainer">
+      {{ layoutContent | safe }}
+    </div>
+
+    <footer class="siteFooter">
+      <p>
+        All resources in this document have been crowdsourced (see <a href="/contributors">contributors</a>) - we take no responsibility for external&nbsp;content.
+      </p>
+      <p>
+        Site last built {{ metadata.buildTime }}
+      </p>
+    </footer>
+
+    <script>document.body.classList.remove("no-js");</script>
+    <script src="/assets/app.js"></script>
+    {% if metadata.env != 'dev' %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ metadata.gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{# NOTE: This layout needs to keep in step with resource.njk #} {% import "../macro/svg.njk" as svg %} {% import
+"../macro/share.njk" as share %}
+
+<div class="resource">
+  <h2 x-text="item.title"></h2>
+
+  <p class="resource__type" x-text="item.type"></p>
+
+  <div class="resource__details">
+    <ul class="resource__meta">
+      <li x-show="item.date">Time: <span x-text="dateForHumans(item)"></span></li>
+      <li x-show="item.host">Host: <span x-text="item.host"></span></li>
+      <li x-show="item.source">Source: <span x-text="item.source"></span></li>
+      <li><span x-text="item.paid ? 'This resource has a cost' : 'This is a free resource'"></span></li>
+    </ul>
+
+    <a :href="item.url" target="_blank" rel="noopener" class="resource__link">
+      Go to resource
+    </a>
+
+    {{ share.sheet(resource.url, resource.title) }}
+  </div>
+
+  <div class="resource__actions">
+    <button class="resource__actions__btn" @click="shareResource($event)">
+      {{ svg.sprite("share", "resource__icon") }}
+    </button>
+  </div>
+</div>

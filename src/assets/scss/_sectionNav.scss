@@ -1,0 +1,17 @@
+.sectionNav {
+  @screen sm {
+    @apply sticky top-0;
+  }
+
+  &__link {
+    @apply no-underline block font-heading text-lg text-grey-darker pr-4 pl-14 py-3;
+
+    &__tracking {
+      @apply bg-salmon text-white;
+    }
+
+    &:hover {
+      @apply bg-salmon text-white;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.resourceContainer {
+  @apply flex flex-col relative;
+
+  @screen sm {
+    @apply grid col-gap-8;
+    grid-template-columns: 220px auto;
+  }
+
+  @screen md {
+    grid-template-columns: 280px auto;
+  }
+
+  &__sidebar {
+    @apply w-full absolute inset-y-0 z-10 bg-white;
+    background-color: #ffffffe0;
+    backdrop-filter: blur(2px);
+
+    @screen sm {
+      @apply relative border-grey border-solid border-r pb-64;
+      display: block !important; // Hack to override alpineJS: revisit
+    }
+  }
+
+  &__sidebar__addResourceBtn {
+    @apply no-underline font-heading flex items-center p-4 uppercase;
+
+    @screen md {
+      @apply pt-6;
+    }
+
+    &:hover {
+      @apply text-salmon;
+    }
+
+    svg {
+      @apply mr-4;
+    }
+  }
+
+  &__sidebar__resourceCount {
+    @apply text-sm pl-14 mb-4;
+
+    &--no-js {
+      @apply hidden;
+    }
+  }
+
+  &__mainList {
+    @apply px-4;
+
+    @screen sm {
+      @apply pl-0 pr-8 pb-32;
+    }
+  }
+
+  &__mainList__section {
+    h1 {
+      @apply font-heading uppercase leading-none font-bold text-4xl py-4;
+      max-width: 200px;
+    }
+
+    .markdown {
+      h2 {
+        @apply font-heading uppercase leading-none font-bold text-3xl py-4;
+      }
+
+      h3 {
+        @apply font-heading uppercase leading-none font-bold text-2xl py-2;
+      }
+
+      a:hover {
+        @apply text-salmon;
+      }
+    }
+  }
+}
+
+.no-js .resourceContainer__sidebar {
+  @apply relative border-b border-grey mb-2 pb-2;
+
+  @screen md {
+    @apply border-b-0;
+  }
+}
+
+.no-js .resourceContainer__sidebar__resourceCount--js {
+  @apply hidden;
+}
+
+.no-js .resourceContainer__sidebar__resourceCount--no-js {
+  @apply block;
+}

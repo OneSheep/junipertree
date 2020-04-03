@@ -1,0 +1,22 @@
+::selection {
+  background: #e8c4bf; 
+}
+::-moz-selection {
+  background: #e8c4bf; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-copy font-normal text-black;
+}
+
+a {
+  @apply underline;
+}
+
+p {
+  @apply my-2;
+}

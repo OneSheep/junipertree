@@ -1,0 +1,29 @@
+.searchField {
+  @apply py-4 relative max-w-screen-md;
+
+  @screen md {
+    @apply py-6;
+  }
+
+  &__input {
+    @apply border-b font-heading text-lg text-grey-darker outline-none appearance-none w-full;
+
+    &:focus,
+    &:hover {
+      @apply border-salmon;
+
+      & + .searchField__icon {
+        @apply text-salmon;
+      }
+    }
+  }
+
+  &__icon {
+    @apply absolute top-0 right-0 text-black mt-4 mr-2 w-6 h-6;
+    transform: color 0.2s;
+
+    @screen md {
+      @apply mt-6
+    }
+  }
+}

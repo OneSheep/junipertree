@@ -1,0 +1,28 @@
+.viewOptions {
+  @apply flex items-center justify-between;
+
+  &__search {
+    @apply flex-grow;
+  }
+
+  &__btns {
+    @apply ml-4;
+
+    button {
+      @apply text-black;
+
+      &:hover,
+      &:focus {
+        @apply appearance-none outline-none;
+      }
+
+      &:hover {
+        @apply text-salmon;
+      }
+    }
+  }
+}
+
+.no-js .viewOptions {
+  display: none;
+}

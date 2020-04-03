@@ -1,0 +1,39 @@
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %} {% import
+"../macro/share.njk" as share %}
+
+<div class="resource">
+  <h2>
+    {{ resource.title | dewidow | safe }}
+  </h2>
+
+  {% if resource.type %}
+  <p class="resource__type">{{ resource.type }}</p>
+  {% endif %}
+
+  <div class="resource__details">
+    <ul class="resource__meta">
+      {% if resource.date %}
+      <li>Time: {{ resource | dateForHumans }}</li>
+      {% endif %} {% if resource.host %}
+      <li>Host: {{ resource.host }}</li>
+      {% endif %} {% if resource.source %}
+      <li>Source: {{ resource.source }}</li>
+      {% endif %} {% if resource.country %}
+      <li>Country: {{ resource.country }}</li>
+      {% endif %}
+      <li>{% if resource.paid %} This is a paid resource {% else %} This is a free resource {% endif %}</li>
+    </ul>
+
+    <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
+      Go to resource
+    </a>
+
+    {{ share.sheet(resource.url, resource.title) }}
+  </div>
+
+  <div class="resource__actions">
+    <button class="resource__actions__btn" @click="shareResource($event)">
+      {{ svg.sprite("share", "resource__icon") }}
+    </button>
+  </div>
+</div>
