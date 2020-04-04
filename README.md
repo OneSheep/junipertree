@@ -74,3 +74,9 @@ npm run production
 ```
 
 Finally update your server config to serve from the `./dist` and everything should be happy.
+
+## Contribute
+
+Juniper Tree is released under the MIT public license. See the enclosed `LICENSE` for details.
+
+If you would like to contribute to improve this tool, we would welcome any pull requests.
