@@ -1,5 +1,7 @@
 # Juniper Tree Resource Agregator
 
+[![GitHub issues](https://img.shields.io/github/issues/OneSheep/junipertree)](https://github.com/OneSheep/junipertree/issues) [![GitHub forks](https://img.shields.io/github/forks/OneSheep/junipertree)](https://github.com/OneSheep/junipertree/network) [![GitHub license](https://img.shields.io/github/license/OneSheep/junipertree)](https://github.com/OneSheep/junipertree/blob/master/LICENSE) [![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FOneSheep%2Fjunipertree)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FOneSheep%2Fjunipertree)
+
 The Juniper Tree stack gives you a fast, free and scalable way to publish crowd-sourced, moderated, resource links to your own domain.
 
 ## Technical stack
