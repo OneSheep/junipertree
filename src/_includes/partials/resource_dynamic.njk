@@ -1,5 +1,4 @@
-{# NOTE: This layout needs to keep in step with resource.njk #} {% import "../macro/svg.njk" as svg %} {% import
-"../macro/share.njk" as share %}
+{# NOTE: This layout needs to keep in step with resource.njk #}
 
 <div class="resource">
   <h2 x-text="item.title"></h2>
@@ -18,7 +17,7 @@
       Go to resource
     </a>
 
-    {{ share.sheet(resource.url, resource.title) }}
+    {% include "../macro/share_dynamic.njk" %}
   </div>
 
   <div class="resource__actions">

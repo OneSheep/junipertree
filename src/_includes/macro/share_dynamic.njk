@@ -1,0 +1,77 @@
+{# NOTE: This layout needs to keep in step with shareArticle?mini.njk #} {% import "../macro/svg.njk" as svg %}
+<div class="shareSheet">
+  <span class="shareSheet__label">
+    Share this resource::
+  </span>
+
+  <span>
+    <a
+      class="shareSheet__service"
+      :href="`https://facebook.com/sharer/sharer.php?u=${encodeURI(item.url)}`"
+      target="_blank"
+      rel="noopener"
+      aria-label="Share on Facebook"
+    >
+      {{ svg.sprite("facebook", "shareSheet__service__icon") }}
+      <span class="shareSheet__service__label">
+        Share on Facebook
+      </span>
+    </a>
+
+    <a
+      class="shareSheet__service"
+      :href="`https://twitter.com/intent/tweet/?text=${encodeURI(item.title)}&amp;url=${encodeURI(item.url)}`"
+      target="_blank"
+      rel="noopener"
+      aria-label="Share on Twitter"
+    >
+      {{ svg.sprite("twitter", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on Twitter
+      </span>
+    </a>
+
+    <a
+      class="shareSheet__service"
+      :href="`mailto:?subject=${encodeURI(item.title)}&amp;body=${encodeURI(item.url)}`"
+      target="_self"
+      rel="noopener"
+      aria-label="Share by E-Mail"
+    >
+      {{ svg.sprite("email", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share by E-Mail
+      </span>
+    </a>
+
+    <a
+      class="shareSheet__service"
+      :href="`https://www.linkedin.com/shareArticle?mini=true&amp;url=${encodeURI(item.url)}&amp;title=${encodeURI(item.title)}&amp;summary=${encodeURI(item.title)}&amp;source=${encodeURI(item.url)}`"
+      target="_blank"
+      rel="noopener"
+      aria-label="Share on LinkedIn"
+    >
+      {{ svg.sprite("linkedin", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on LinkedIn
+      </span>
+    </a>
+
+    <a
+      class="shareSheet__service"
+      :href="`whatsapp://send?text=${encodeURI(item.title)}%20${encodeURI(item.url)}`"
+      target="_blank"
+      rel="noopener"
+      aria-label="Share on WhatsApp"
+    >
+      {{ svg.sprite("whatsapp", "shareSheet__service__icon") }}
+
+      <span class="shareSheet__service__label">
+        Share on WhatsApp
+      </span>
+    </a>
+  </span>
+</div>
