@@ -23,15 +23,6 @@ You will need a build hook to trigger content updates:
 - Under `Site Settings`, click `Build and Deploy` > `Build hooks` > `Add build hook`
 - This will generate an API link with your build hook ID. You will need to add this to your Google Sheet, eg. https://api.netlify.com/build_hooks/<Your build hook ID>
 
-## DNS
-
-Nameservers
-
-- The nameservers for Netlify can be found under your Netlify team > Domains
-- These need adding to your registrar
-
-Your site can be run from a subdomain by creating a CNAME record from your subdomain to Netlify's default subdomain
-
 ## Set up a Google Sheet
 
 - [Make a copy of the sheet template](bit.ly/juniper-template)
@@ -50,9 +41,15 @@ Edit the values in `config.js` to link your app to your spreadsheet and tweak th
 
 Also fill out the `about.md` file for giving more information about your collection and for communicating your contact details.
 
+## Domain name
+
+You can set your site domain to something like `janets-list@netlify.com`in your project's Netlify domain settings. If you own a domain that you want to point to your site, you can create a CNAME record in your DNS that points to this Netlify address.
+
+That's it! A completely free website without writing a line of code!
+
 ### ⚠️ Warning
 
-The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
+You are of course free to add resources directly into the spreadheet, but be careful not to leave open rows. The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
 
 ## Hosting with another service?
 
@@ -82,3 +79,10 @@ Finally update your server config to serve from the `./dist` and everything shou
 Juniper Tree is released under the MIT public license. See the enclosed `LICENSE` for details.
 
 If you would like to contribute to improve this tool, we would welcome any pull requests.
+
+## Built with Juniper Tree
+
+- [COVID-19: Digital tools for the church](https://covid.churcheshandbook.co.uk/)
+- [COVID-19 Resources](https://covidresources.site/)
+
+Please add yours here.
