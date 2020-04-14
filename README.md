@@ -25,7 +25,7 @@ You will need a build hook to trigger content updates:
 
 ## Set up a Google Sheet
 
-- [Make a copy of the sheet template](bit.ly/juniper-template)
+- [Make a copy of the sheet template](https://bit.ly/juniper-template)
 - Click `File` > `Publish to the web` in the menu bar
 - Click `Tools` > `Script editor` and fill in your Netlify build hook ID and save the changes.
 - You can optionally use the `Lists` tab, to perform validation on the data that comes in via the form
