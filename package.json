@@ -13,7 +13,7 @@
     "@11ty/eleventy": "^0.10.0",
     "@ayctor/laravel-mix-svg-sprite": "^1.0.0",
     "@fullhuman/postcss-purgecss": "^2.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "laravel-mix": "^5.0.1",
     "lodash.throttle": "^4.1.1",
     "luxon": "^1.22.2",
